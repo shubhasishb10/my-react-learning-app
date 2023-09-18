@@ -1,5 +1,8 @@
-import ExpenseItem from "./components/Expenses/ExpenseItem";
+import React from "react";
+
 import AppTitle from "./components/UI/AppTitle";
+import NewExpense from "./components/Expenses/NewExpense/NewExpense";
+import Expenses from "./components/Expenses/Expenses";
 
 const App = () => {
   const expenses = [
@@ -29,13 +32,16 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = expense => {
+    console.log("In App.js")
+    console.log(expense);
+  }
+
   return (
     <div>
       <AppTitle />
-      <ExpenseItem expense={expenses[0]}></ExpenseItem>
-      <ExpenseItem expense={expenses[1]}></ExpenseItem>
-      <ExpenseItem expense={expenses[2]}></ExpenseItem>
-      <ExpenseItem expense={expenses[3]}></ExpenseItem>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expenses={expenses} />
     </div>
   );
 }
