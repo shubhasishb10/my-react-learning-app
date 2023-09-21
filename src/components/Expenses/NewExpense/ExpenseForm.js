@@ -18,6 +18,10 @@ const ExpenseForm = (_props) => {
         setEnteredDate($event.target.value);
     }
 
+    const cancelButtonClickHandler = () => {
+        _props.onCancelButtonClick()
+    }
+
     const submitHandler = $event => {
         $event.preventDefault();
         const expenseData = {
@@ -90,6 +94,9 @@ const ExpenseForm = (_props) => {
             <div className="new-expense__control">
                 <label>Date</label>
                 <input type="date" min="2019-01-01" value={enteredDate} max="2024-12-31" onChange={dateChangeHandler}/>
+            </div>
+            <div className="new-expense__actions">
+                <button className="btn btn-secondary" onClick={cancelButtonClickHandler} type="button">Cancel</button>
             </div>
             <div className="new-expense__actions">
                 <button className="btn btn-secondary" type="submit">Add Expense</button>

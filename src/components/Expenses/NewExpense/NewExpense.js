@@ -14,9 +14,13 @@ const NewExpense = (_props) => {
         _props.onAddExpense(expenseData);
     }
 
+    const cancelButtonClickHandler = () => {
+        _props.onCancelButtonClick()
+    }
+
     return (
         <Card className="new-expense">
-            <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
+            <ExpenseForm onCancelButtonClick={cancelButtonClickHandler} onSaveExpenseData={onSaveExpenseDataHandler} />
         </Card>
     )
 }
