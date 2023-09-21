@@ -13,10 +13,6 @@ const ShowConditionalAddFormPanel = (_props) => {
         toggleVisibility()
     }
 
-    const changeVisibility = () => {
-        toggleVisibility()
-    }
-
     const toggleVisibility = () => {
         setShowFormEnabled(preValue => !preValue)
     }
@@ -24,7 +20,7 @@ const ShowConditionalAddFormPanel = (_props) => {
     return (
         isShowFormEnabled ? <NewExpense onCancelButtonClick={toggleVisibility} onAddExpense={expenseAddHandler}/> :
             <Card className="new-expense">
-                <button onClick={changeVisibility}>Add Expense</button>
+                <button onClick={toggleVisibility}>Add Expense</button>
             </Card>
     )
 }
